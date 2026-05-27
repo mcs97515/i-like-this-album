@@ -9,24 +9,24 @@ export function TopBar({
   user: { name?: string | null; image?: string | null };
 }) {
   return (
-    <div className="flex w-full max-w-4xl items-center justify-between">
-      <Link href="/" className="flex items-center gap-2 text-2xl font-bold">
+    <div className="flex w-full max-w-4xl items-center justify-between gap-4">
+      <Link href="/" className="flex items-center gap-2 text-lg sm:text-2xl font-bold shrink-0">
         <span className="inline-block animate-spin-3d mb-1">
           <ThumbsUpIcon size={22} />
         </span>
         I Like This Album.
       </Link>
 
-      <div className="flex items-center gap-10 padding-2">
+      <div className="flex items-center gap-3 sm:gap-10">
         <NavLink />
 
-        <div className="flex flex-col items-end text-sm mt-5">
+        <div className="flex flex-col items-end text-sm sm:mt-5">
           <div className="flex items-center gap-2">
             {user.image && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={user.image} alt="" className="h-8 w-8 rounded-full" />
+              <img src={user.image} alt="" className="h-7 w-7 sm:h-8 sm:w-8 rounded-full" />
             )}
-            <span>{user.name}</span>
+            <span className="hidden sm:inline">{user.name}</span>
           </div>
           <form
             action={async () => {
