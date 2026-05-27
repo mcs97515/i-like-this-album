@@ -19,19 +19,23 @@ type AlbumInput = {
 
 async function upsertAlbum(input: AlbumInput) {
   const { tags, trackCount, ...rest } = input;
-  return prisma.album.upsert({
-    where: { lastfmUrl: rest.lastfmUrl },
-    create: {
-      ...rest,
-      tags: tags ?? [],
-      trackCount: trackCount ?? null,
-    },
-    update: {
-      ...rest,
-      ...(tags && tags.length > 0 ? { tags } : {}),
-      ...(trackCount != null ? { trackCount } : {}),
-    },
-  });
+  const updateData = {
+    ...rest,
+    ...(tags && tags.length > 0 ? { tags } : {}),
+    ...(trackCount != null ? { trackCount } : {}),
+  };
+  try {
+    return await prisma.album.upsert({
+      where: { lastfmUrl: rest.lastfmUrl },
+      create: { ...rest, tags: tags ?? [], trackCount: trackCount ?? null },
+      update: updateData,
+    });
+  } catch (e: unknown) {
+    if ((e as { code?: string })?.code === "P2002" && rest.mbid) {
+      return prisma.album.update({ where: { mbid: rest.mbid }, data: updateData });
+    }
+    throw e;
+  }
 }
 
 function seedToInput(seed: SeedAlbumInfo): AlbumInput {
