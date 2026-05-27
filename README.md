@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# I Like This Album
+
+A music recommendation web app — search for an album you love and get personalized recommendations based on it. Built by lionsss.
+
+## Features
+
+- **Album search & recommendations** — powered by the Last.fm API, with results cached in Redis and persisted in Postgres
+- **Streaming links** — every recommendation includes direct Spotify and Apple Music links fetched from the iTunes Search API
+- **Search history** — a deduplicated log of every album you've searched, with quick links back to results
+- **Google sign-in** — authentication via NextAuth
+- **Animated UI** — page transitions, a spinning 3D thumbs-up, hover effects throughout
+
+## Tech Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 16 (App Router, Turbopack) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Auth | NextAuth (Google OAuth) |
+| Database | PostgreSQL via Prisma |
+| Cache | Redis (Upstash) |
+| Music data | Last.fm API |
+| Streaming links | iTunes Search API |
+| Fonts | DM Sans |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+
+- PostgreSQL database
+- Redis instance
+- Last.fm API key
+- Google OAuth credentials
+
+### Environment Variables
+
+Create a `.env` file at the root:
+
+```env
+DATABASE_URL=
+REDIS_URL=
+AUTH_SECRET=
+AUTH_GOOGLE_ID=
+AUTH_GOOGLE_SECRET=
+LASTFM_API_KEY=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install & Run
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npx prisma migrate deploy
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Recommended stack (all have free tiers):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Vercel** — hosting
+- **Neon** — serverless Postgres
+- **Upstash** — serverless Redis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After provisioning, set your environment variables in the Vercel dashboard and update your Google OAuth redirect URI to your production domain.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
