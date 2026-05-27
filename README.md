@@ -8,7 +8,7 @@ A music recommendation web app — search for an album you love and get personal
 - **Streaming links** — every recommendation includes direct Spotify and Apple Music links fetched from the iTunes Search API
 - **Search history** — a deduplicated log of every album you've searched, with quick links back to results
 - **Google sign-in** — authentication via NextAuth
-- **Animated UI** — page transitions, a spinning 3D thumbs-up, hover effects throughout
+- **Animated UI** — page transitions, a spinning 3D thumbs-up, hover and tap effects throughout
 
 ## Tech Stack
 
