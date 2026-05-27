@@ -20,7 +20,7 @@ export function TopBar({
       <div className="flex items-center gap-3 sm:gap-10">
         <NavLink />
 
-        <div className="flex flex-col items-end text-sm sm:mt-5">
+        <div className="flex flex-col items-center mt-[5px] sm:items-end sm:mt-5 text-sm">
           <div className="flex items-center gap-2">
             {user.image && (
               // eslint-disable-next-line @next/next/no-img-element
