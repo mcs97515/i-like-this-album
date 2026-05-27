@@ -37,7 +37,7 @@ export function SearchForm({ initialQuery }: { initialQuery?: string }) {
         <button
           type="submit"
           disabled={pending || !query.trim()}
-          className="rounded-full bg-gray-900 px-6 py-2 text-white disabled:opacity-50 transition-all duration-150 hover:scale-105 hover:bg-white hover:text-gray-900"
+          className="rounded-full bg-gray-900 px-6 py-2 text-white disabled:opacity-50 transition-all duration-150 hover:scale-105 hover:bg-white hover:text-gray-900 active:scale-105 active:bg-white active:text-gray-900"
         >
           Search
         </button>

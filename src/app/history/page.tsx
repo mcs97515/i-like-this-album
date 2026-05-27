@@ -32,10 +32,10 @@ export default async function HistoryPage() {
         ) : (
           <ul className="flex flex-col">
             {history.map((s) => (
-              <li key={s.id} className="my-1 transition-[margin,transform] duration-300 hover:my-2 hover:translate-x-1.5">
+              <li key={s.id} className="my-1 transition-[margin,transform] duration-300 hover:my-2 hover:translate-x-1.5 active:my-2 active:translate-x-1.5">
                 <Link
                   href={`/?q=${encodeURIComponent(s.query)}`}
-                  className="flex items-center gap-4 rounded border border-gray-700 bg-gray-900 p-3 hover:bg-gray-700"
+                  className="flex items-center gap-4 rounded border border-gray-700 bg-gray-900 p-3 hover:bg-gray-700 active:bg-gray-700"
                 >
                   {s.seedAlbum?.artUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element

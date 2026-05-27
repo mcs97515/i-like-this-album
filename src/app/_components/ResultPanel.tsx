@@ -45,7 +45,7 @@ export function ResultPanel({
           <div className="flex justify-center pt-2">
             <Link
               href={`/?q=${encodeURIComponent(query)}&offset=${nextOffset}`}
-              className="flex items-center gap-1.5 rounded border border-gray-700 bg-gray-900 px-6 py-2 text-white transition-all duration-150 hover:scale-105 hover:bg-white hover:text-gray-900"
+              className="flex items-center gap-1.5 rounded border border-gray-700 bg-gray-900 px-6 py-2 text-white transition-all duration-150 hover:scale-105 hover:bg-white hover:text-gray-900 active:scale-105 active:bg-white active:text-gray-900"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>

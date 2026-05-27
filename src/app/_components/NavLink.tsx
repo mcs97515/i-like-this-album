@@ -10,7 +10,7 @@ export function NavLink() {
   return (
     <Link
       href={onHistory ? "/" : "/history"}
-      className="flex items-center gap-1.5 rounded-full border border-white bg-white px-4 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100"
+      className="flex items-center gap-1.5 rounded-full border border-white bg-white px-4 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 active:bg-gray-100"
     >
       {onHistory ? (
         <>

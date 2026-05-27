@@ -34,7 +34,7 @@ export function TopBar({
               await signOut({ redirectTo: "/" });
             }}
           >
-            <button type="submit" className="text-xs text-gray-500 hover:underline">
+            <button type="submit" className="text-xs text-gray-500 hover:underline active:underline">
               Sign out
             </button>
           </form>
